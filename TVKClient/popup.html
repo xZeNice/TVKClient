@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css">
+    <title>TVKClient</title>
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="icons/icon48.png" alt="">
+        <div class="brand">
+            <span class="name">TVKClient <span class="version" id="version"></span></span>
+            <span class="status" id="status"><i></i><b></b></span>
+        </div>
+        <label class="switch switch-lg" title="Включить / выключить всё">
+            <input type="checkbox" id="enabled">
+            <span></span>
+        </label>
+    </header>
+
+    <main id="content">
+        <div id="sections"></div>
+
+        <section class="group">
+            <h2><span>Стоп-слова</span></h2>
+            <div class="card">
+                <textarea id="stopWords" rows="2" maxlength="2000" placeholder="раздача, розыгрыш, крипта" spellcheck="false"></textarea>
+                <p class="note">Посты с этими словами скрываются. Через запятую.</p>
+            </div>
+        </section>
+
+        <section class="group">
+            <h2><span>Тема</span></h2>
+            <div class="card">
+                <div class="theme-row" id="themeRow">
+                    <button class="theme-btn" data-theme="auto">Авто</button>
+                    <button class="theme-btn" data-theme="dark">Тёмная</button>
+                    <button class="theme-btn" data-theme="light">Светлая</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <span class="credit"></span>
+        <button class="btn btn-ghost" id="reset" type="button">Сбросить</button>
+        <a class="btn btn-primary" id="donate" target="_blank" rel="noopener"></a>
+    </footer>
+
+    <div class="modal" id="modal" hidden>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <h3 id="modalTitle">Сбросить настройки?</h3>
+            <p>Все переключатели и стоп-слова вернутся к значениям по умолчанию.</p>
+            <div class="modal-actions">
+                <button class="btn btn-ghost" id="modalCancel" type="button">Отмена</button>
+                <button class="btn btn-danger" id="modalConfirm" type="button">Сбросить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="settings.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
